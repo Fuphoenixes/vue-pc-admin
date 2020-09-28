@@ -1,8 +1,8 @@
 {
-  "name": "vue-pc-admin",
-  "version": "0.1.0",
-  "description": "这是一个基于 vue admin 管理后台",
-  "author": "zhaotian",
+  "name": "{{name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
+  "author": "{{author}}",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -11,8 +11,10 @@
     "build:static": "vue-cli-service build --mode static",
     "preview": "node build/index.js --preview",
     "report": "node build/index.js --preview --report",
+    {{#if isEslint}}
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "npm run lint -- --fix",
+    {{/if}}
     "test:unit": "jest --clearCache && vue-cli-service test:unit",
     "test:ci": "npm run lint && npm run test:unit",
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
@@ -80,11 +82,12 @@
     "svg-sprite-loader": "4.1.3",
     "svgo": "1.2.2",
     "vue-template-compiler": "2.6.10"
-  },
+    },
+  {{#if isEslint}}
   "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "hooks": {
+    "pre-commit": "lint-staged"
+  }
   },
   "lint-staged": {
     "src/**/*.{js,vue}": [
@@ -92,10 +95,11 @@
       "git add"
     ]
   },
+  {{/if}}
   "engines": {
     "node": ">=8.9",
     "npm": ">= 3.0.0"
-  },
+    },
   "browserslist": [
     "> 1%",
     "last 2 versions",
