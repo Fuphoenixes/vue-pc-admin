@@ -1,0 +1,203 @@
+// cover some element-ui styles
+
+.el-header,.el-main{
+	padding: 0;
+}
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}
+
+.el-upload {
+  input[type="file"] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+
+// to fixed https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  margin: 0 auto;
+}
+
+.el-dialog{
+  .el-dialog__body{
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  .el-dialog__header{
+    height: 36px;
+    line-height: 36px;
+    padding: 0 20px;
+    background: $themeColor;
+    .el-dialog__title{
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .el-dialog__headerbtn{
+      font-size: 24px;
+      top: 6px;
+      i{
+        color: #fff;
+      }
+    }
+  }
+  .el-dialog__footer{
+    border-top: 1px solid #DCDFE6;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 20px;
+  }
+}
+
+.PAGE-SIZE-small .el-dialog {
+  .el-dialog__header {
+    height: 42px;
+    line-height: 42px;
+    .el-dialog__headerbtn{
+      top: 7px;
+    }
+  }
+  .el-dialog__footer{
+    height: 42px;
+    line-height: 42px;
+  }
+}
+
+.PAGE-SIZE-medium .el-dialog {
+  .el-dialog__header {
+    height: 50px;
+    line-height: 50px;
+    .el-dialog__headerbtn{
+      top: 11px;
+    }
+  }
+  .el-dialog__footer{
+    height: 49px;
+    line-height: 49px;
+  }
+}
+
+
+// refine element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+// dropdown
+.el-dropdown-menu {
+  a {
+    display: block
+  }
+}
+
+// to fix el-date-picker css style
+.el-range-separator {
+  box-sizing: content-box;
+}
+
+.el-drawer__header{
+	&>span,&>button{
+		outline: none !important;
+	}
+}
+
+// el-table
+.el-table{
+  // 无边框模式下增加外边框
+  border-left: 1px solid #EBEEF5;
+  border-right: 1px solid #EBEEF5;
+  // 表头样式
+  thead {
+    color: #333;
+  }
+  .el-table__header {
+    tr, th{
+      background: #E5E7F2;
+    }
+  }
+  // 斑马纹样式
+  &.el-table--striped .el-table__body tr.el-table__row--striped td{
+    background: #EFF9FF;
+  }
+  // hover样式
+  &.el-table--enable-row-hover .el-table__body tr:hover>td{
+    background: #F5F7FA;
+  }
+  // 选中列样式
+  &.el-table--striped .el-table__body tr.el-table__row--striped.current-row td,.el-table__body tr.current-row>td{
+    background: $themeColor-8 !important;
+  }
+  // mini版大小样式调整
+  &.el-table--mini{
+    th{
+      padding: 4px 0;
+      .caret-wrapper{
+        height: 24px;
+        .sort-caret.ascending{
+          top: 0;
+        }
+        .sort-caret.descending{
+          bottom: 2px;
+        }
+      }
+    }
+    td{
+      padding: 2px 0;
+    }
+  }
+  &.el-table--mini, &.el-table--small, &.el-table__expand-icon{
+    font-size: 14px;
+  }
+  // small版大小样式调整
+  &.el-table--small{
+    th{
+      padding: 6px 0;
+    }
+    td{
+      padding: 4px 0;
+    }
+  }
+  // medium版大小样式
+  &.el-table--medium{
+    th{
+      padding: 8px 0;
+    }
+    td{
+      padding: 6px 0;
+    }
+  }
+}
+
+// el-tree-select
+.el-tree-select-popper {
+  [aria-disabled=true]>.el-tree-node__content {
+    color: #ccc !important;
+  }
+}
+
+// el-select
+// 增加loading样式
+.el-select.el-select-loading .el-icon-arrow-up{
+  animation: rotating 2s linear infinite;
+  &:before {
+    content: "\e6cf";
+  }
+}

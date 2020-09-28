@@ -1,0 +1,57 @@
+
+  .sidebar-container /deep/ {
+
+    .svg-icon {
+      margin-right: 16px;
+    }
+
+    .el-menu {
+      border: none;
+      height: 100%;
+      width: 100% !important;
+    }
+
+		& .nest-menu{
+			font-size: 0;
+		}
+
+		.el-menu>div{
+			padding: 5px 0;
+		}
+
+		.el-menu-item, .el-submenu__title{
+			height: 40px;
+			line-height: 40px;
+		}
+
+		.el-submenu__title{
+			.el-submenu__icon-arrow{
+				position: relative;
+				right: 0;
+				float: right;
+			}
+		}
+
+		.el-menu--collapse {
+		  .el-submenu {
+		    &>.el-submenu__title {
+		      &>span {
+		        height: 0;
+		        width: 0;
+		        overflow: hidden;
+		        visibility: hidden;
+		        display: inline-block;
+		      }
+					.el-submenu__icon-arrow{
+						display: none;
+					}
+		    }
+		  }
+		}
+  }
+
+  // reset element-ui css
+  .horizontal-collapse-transition {
+    transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+  }
+

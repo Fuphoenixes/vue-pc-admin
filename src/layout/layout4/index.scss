@@ -1,0 +1,198 @@
+.layout4-aside {
+  transition: width 0.28s;
+  width: 100% !important;
+  height: 100%;
+  background-color: $themeColor;
+  position: relative;
+  z-index: 10;
+}
+
+.layout4-navbar {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .navbar-left {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  .sidebar-logo-container {
+    .sidebar-logo-link {
+      .sidebar-logo {
+        color: $themeColor;
+      }
+
+      .sidebar-title {
+        color: #333;
+      }
+    }
+  }
+
+  .right-menu .menu-item {
+    background: #fff !important;
+    color: #303133 !important;
+
+    &:hover {
+      background: rgba(0, 0, 0, .025) !important;
+    }
+  }
+}
+
+//布局
+.layout4 {
+  .app-container {
+    height: 100%;
+    width: 100%;
+    background: #F0F2F5;
+    //background: blue;
+    position: relative;
+
+    .app-header {
+      height: 60px;
+      position: relative;
+      z-index: 4;
+      box-shadow: 0 2px 4px 0 rgba(96, 96, 96, 0.16);
+    }
+
+    .app-container-in {
+      //background: blue;
+      background: #F0F2F5;
+      height: calc(100% - 60px);
+      width: 100%;
+      position: relative;
+
+      .app-aside {
+        width: $sideBarWidth;
+        height: 100%;
+        //background: yellow;
+        background: $themeColor;
+        box-shadow: 2px 0 6px rgba(0,21,41,.35);
+        transition: width .28s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 3;
+
+        // 侧边栏滚动条
+        .el-scrollbar {
+          height: calc(100% - 30px);
+        }
+
+        .el-scrollbar__bar {
+          z-index: 10;
+        }
+
+        .el-scrollbar__bar.is-vertical {
+          right: 0;
+        }
+
+        .scrollbar-wrapper {
+          overflow-x: hidden !important;
+        }
+
+        .hamburger-container {
+          line-height: 30px;
+          text-align: center;
+          height: 30px;
+          cursor: pointer;
+          transition: background .3s;
+          -webkit-tap-highlight-color: transparent;
+          color: #fff;
+          background: rgba(0, 0, 0, .05);
+        }
+
+      }
+
+      .app-main {
+        margin-left: $sideBarWidth;
+        transition: margin-left .28s;
+        height: 100%;
+        position: relative;
+        .app-main-in {
+          height: 100%;
+          background: #F0F2F5;
+          position: relative;
+          overflow-y: auto;
+        }
+      }
+
+    }
+
+  }
+
+  .hideSidebar {
+    .app-aside {
+      width: 54px !important;
+    }
+
+    .app-main {
+      margin-left: 54px !important;
+    }
+  }
+
+  .needTagsView {
+    .app-header-in {
+      height: 34px;
+    }
+
+    .app-main-in {
+      height: calc(100% - 34px) !important;
+    }
+  }
+
+  .withoutAnimation {
+    .app-main {
+      transition: none !important;
+    }
+
+    .app-aside {
+      transition: none !important;
+    }
+  }
+}
+
+//layout4 菜单颜色样式
+.layout4 .el-menu {
+  background-color: $themeColor;
+
+  .el-menu-item, .el-submenu__title {
+    color: rgba(255, 255, 255, .7);
+    background-color: $themeColor;
+
+    .el-submenu__icon-arrow {
+      color: rgba(255, 255, 255, .5);
+    }
+
+    &:hover, &:focus {
+      background-color: rgba(0, 0, 0, .1);
+      color: #fff;
+
+      .el-submenu__icon-arrow {
+        color: #fff;
+      }
+    }
+
+    &.is-active {
+      background-color: rgba(0, 0, 0, .2);
+      color: #fff;
+    }
+  }
+
+  .is-active .el-submenu__title {
+    color: #fff;
+
+    .el-submenu__icon-arrow {
+      color: #fff;
+    }
+  }
+}
