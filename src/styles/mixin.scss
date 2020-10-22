@@ -1,8 +1,9 @@
+/* stylelint-disable  order/properties-order */
 @mixin clearfix {
-  &:after {
-    content: "";
+  &::after {
     display: table;
     clear: both;
+    content: "";
   }
 }
 
@@ -28,8 +29,8 @@
 }
 
 @mixin pct($pct) {
-  width: #{$pct};
   position: relative;
+  width: #{$pct};
   margin: 0 auto;
 }
 
@@ -37,8 +38,9 @@
   $width: $width/2;
   $color-border-style: $height solid $color;
   $transparent-border-style: $width solid transparent;
-  height: 0;
+
   width: 0;
+  height: 0;
 
   @if $direction==up {
     border-bottom: $color-border-style;
@@ -71,13 +73,18 @@
     overflow: hidden;
     white-space: nowrap;
   }
+
   @else if $row > 1 {
     overflow: hidden;
     text-overflow: ellipsis;
+    /* stylelint-disable */
     display: -webkit-box;
     -webkit-line-clamp: $row;
+
     /*! autoprefixer: off */
     -webkit-box-orient: vertical;
+
     /* autoprefixer: on */
+    /* stylelint-enable */
   }
 }

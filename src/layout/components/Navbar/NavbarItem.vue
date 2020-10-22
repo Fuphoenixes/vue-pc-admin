@@ -44,18 +44,18 @@
   }
 </script>
 <style>
-	.el-menu--horizontal .svg-icon{
-		margin-right: 8px;
-		vertical-align: middle;
-	}
+  .el-menu--horizontal .svg-icon {
+    margin-right: 8px;
+    vertical-align: middle;
+  }
 </style>
 <style lang="scss" scoped>
-	.no-arrow /deep/ .el-submenu__title{
-		font-weight: bold;
-		width: 60px;
-		text-align: center;
-		i{
-			display: none;
-		}
-	}
+  .no-arrow /deep/ .el-submenu__title {
+    width: 60px;
+    font-weight: bold;
+    text-align: center;
+    i {
+      display: none;
+    }
+  }
 </style>

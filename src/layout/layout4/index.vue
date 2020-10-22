@@ -81,13 +81,13 @@
 <style lang="scss">
   @import './index.scss';
   .drawer-bg {
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
     background: #000;
     opacity: 0.3;
-    width: 100%;
-    top: 0;
-    height: 100%;
-    position: absolute;
-    z-index: 99;
   }
 </style>
 

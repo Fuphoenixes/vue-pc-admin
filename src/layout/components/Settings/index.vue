@@ -34,7 +34,7 @@
           :value="settings.themeColor || '#4451B2'"
           :predefine="['#4451B2', '#12B1B1', '#409EFF', '#E84B16', '#fa541c','#EBA313', '#4CB418', '#2f54eb', '#722ed1']"
           popper-class="theme-picker-dropdown"
-          style="float: right;height: 26px;margin: -3px 8px 0 0;"
+          style="float: right; height: 26px; margin: -3px 8px 0 0;"
           class="theme-picker"
           @change="themeColor=>changeSetting({themeColor})"
         />
@@ -131,16 +131,16 @@
     word-wrap: break-word;
 
     .drawer-item {
-      color: rgba(0, 0, 0, .65);
-      font-size: 14px;
       padding: 12px 0;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.65);
 
       .layout {
         margin-top: 16px;
 
         & > li {
-          display: inline-block;
           position: relative;
+          display: inline-block;
           width: 52px;
           height: 45px;
           margin-right: 10px;
@@ -154,27 +154,27 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
             font-size: 22px;
             font-weight: bold;
             color: #409EFF;
+            transform: translate(-50%, -50%);
           }
         }
       }
     }
 
     .drawer-switch {
-      float: right
+      float: right;
     }
     .drawer-select {
-      width: 60px;
       float: right;
+      width: 60px;
     }
   }
 
   .theme-picker /deep/ .el-color-picker__trigger {
-    height: 26px !important;
     width: 26px !important;
+    height: 26px !important;
     padding: 2px;
   }
 </style>

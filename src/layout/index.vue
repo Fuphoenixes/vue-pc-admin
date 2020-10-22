@@ -64,8 +64,8 @@
   }
 </script>
 <style lang="scss" scoped>
-	.layout-wrapper{
-		height: 100%;
-		width: 100%;
-	}
+  .layout-wrapper {
+    width: 100%;
+    height: 100%;
+  }
 </style>

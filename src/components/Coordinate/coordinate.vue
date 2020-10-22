@@ -124,9 +124,9 @@
 </script>
 <style lang="scss" scoped>
   .map {
-    cursor: pointer;
-    font-size: 20px;
     margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
     &:hover {
       color: $themeColor;
     }
@@ -136,8 +136,8 @@
   .coordinate-map-dialog {
     min-width: 700px;
     .el-dialog__body {
-      padding: 0;
       height: 70vh;
+      padding: 0;
       .map-content {
         width: 100%;
         height: 100%;

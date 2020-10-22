@@ -1,7 +1,8 @@
 // cover some element-ui styles
 
-.el-header,.el-main{
-	padding: 0;
+.el-header,
+.el-main {
+  padding: 0;
 }
 
 .el-breadcrumb__inner,
@@ -19,44 +20,40 @@
   display: none;
 }
 
-
 // to fixed https://github.com/ElemeFE/element/issues/2461
 .el-dialog {
-  transform: none;
-  left: 0;
   position: relative;
+  left: 0;
   margin: 0 auto;
-}
-
-.el-dialog{
-  .el-dialog__body{
-    padding: 20px;
+  transform: none;
+  .el-dialog__body {
     max-height: 70vh;
+    padding: 20px;
     overflow-y: auto;
   }
-  .el-dialog__header{
+  .el-dialog__header {
     height: 36px;
-    line-height: 36px;
     padding: 0 20px;
+    line-height: 36px;
     background: $themeColor;
-    .el-dialog__title{
-      color: #FFFFFF;
+    .el-dialog__title {
       font-size: 16px;
       font-weight: bold;
+      color: #FFF;
     }
-    .el-dialog__headerbtn{
-      font-size: 24px;
+    .el-dialog__headerbtn {
       top: 6px;
-      i{
+      font-size: 24px;
+      i {
         color: #fff;
       }
     }
   }
-  .el-dialog__footer{
-    border-top: 1px solid #DCDFE6;
+  .el-dialog__footer {
     height: 36px;
-    line-height: 36px;
     padding: 0 20px;
+    line-height: 36px;
+    border-top: 1px solid #DCDFE6;
   }
 }
 
@@ -64,11 +61,11 @@
   .el-dialog__header {
     height: 42px;
     line-height: 42px;
-    .el-dialog__headerbtn{
+    .el-dialog__headerbtn {
       top: 7px;
     }
   }
-  .el-dialog__footer{
+  .el-dialog__footer {
     height: 42px;
     line-height: 42px;
   }
@@ -78,16 +75,15 @@
   .el-dialog__header {
     height: 50px;
     line-height: 50px;
-    .el-dialog__headerbtn{
+    .el-dialog__headerbtn {
       top: 11px;
     }
   }
-  .el-dialog__footer{
+  .el-dialog__footer {
     height: 49px;
     line-height: 49px;
   }
 }
-
 
 // refine element ui upload
 .upload-container {
@@ -104,7 +100,7 @@
 // dropdown
 .el-dropdown-menu {
   a {
-    display: block
+    display: block;
   }
 }
 
@@ -113,74 +109,79 @@
   box-sizing: content-box;
 }
 
-.el-drawer__header{
-	&>span,&>button{
-		outline: none !important;
-	}
+.el-drawer__header {
+  & > span,
+  & > button {
+    outline: none !important;
+  }
 }
 
 // el-table
-.el-table{
+.el-table {
+  border-right: 1px solid #EBEEF5;
   // 无边框模式下增加外边框
   border-left: 1px solid #EBEEF5;
-  border-right: 1px solid #EBEEF5;
   // 表头样式
   thead {
     color: #333;
   }
   .el-table__header {
-    tr, th{
+    tr,
+    th {
       background: #E5E7F2;
     }
   }
   // 斑马纹样式
-  &.el-table--striped .el-table__body tr.el-table__row--striped td{
+  &.el-table--striped .el-table__body tr.el-table__row--striped td {
     background: #EFF9FF;
   }
   // hover样式
-  &.el-table--enable-row-hover .el-table__body tr:hover>td{
+  &.el-table--enable-row-hover .el-table__body tr:hover > td {
     background: #F5F7FA;
   }
   // 选中列样式
-  &.el-table--striped .el-table__body tr.el-table__row--striped.current-row td,.el-table__body tr.current-row>td{
+  &.el-table--striped .el-table__body tr.el-table__row--striped.current-row td,
+  .el-table__body tr.current-row > td {
     background: $themeColor-8 !important;
   }
   // mini版大小样式调整
-  &.el-table--mini{
-    th{
+  &.el-table--mini {
+    th {
       padding: 4px 0;
-      .caret-wrapper{
+      .caret-wrapper {
         height: 24px;
-        .sort-caret.ascending{
+        .sort-caret.ascending {
           top: 0;
         }
-        .sort-caret.descending{
+        .sort-caret.descending {
           bottom: 2px;
         }
       }
     }
-    td{
+    td {
       padding: 2px 0;
     }
   }
-  &.el-table--mini, &.el-table--small, &.el-table__expand-icon{
+  &.el-table--mini,
+  &.el-table--small,
+  &.el-table__expand-icon {
     font-size: 14px;
   }
   // small版大小样式调整
-  &.el-table--small{
-    th{
+  &.el-table--small {
+    th {
       padding: 6px 0;
     }
-    td{
+    td {
       padding: 4px 0;
     }
   }
   // medium版大小样式
-  &.el-table--medium{
-    th{
+  &.el-table--medium {
+    th {
       padding: 8px 0;
     }
-    td{
+    td {
       padding: 6px 0;
     }
   }
@@ -188,16 +189,39 @@
 
 // el-tree-select
 .el-tree-select-popper {
-  [aria-disabled=true]>.el-tree-node__content {
+  [aria-disabled=true] > .el-tree-node__content {
     color: #ccc !important;
   }
 }
 
 // el-select
 // 增加loading样式
-.el-select.el-select-loading .el-icon-arrow-up{
+.el-select.el-select-loading .el-icon-arrow-up {
   animation: rotating 2s linear infinite;
-  &:before {
+  &::before {
     content: "\e6cf";
+  }
+}
+
+// el-step
+.el-step__head.is-success {
+  color: $themeColor;
+  border-color: $themeColor;
+}
+.el-step__title.is-success {
+  color: $themeColor !important;
+}
+.is-success .el-step__line {
+  background-color: $themeColor !important;
+}
+
+.el-pagination.is-background .el-pager li.active:not(.disabled):hover {
+  color: #fff !important;
+}
+
+.readonly {
+  &.el-input-number .el-input.is-disabled .el-input__inner {
+    color: #606266;
+    background: #fff;
   }
 }

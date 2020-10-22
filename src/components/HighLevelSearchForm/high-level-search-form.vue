@@ -282,133 +282,133 @@
       })
 
       const renderTransferTit = (
-      <div class='transfer-tit'>
+        <div class='transfer-tit'>
         <span>列名</span>
         <span>操作</span>
-      </div>
+        </div>
     )
 
       const renderFunc = (h, option) => {
         return (
-        <div class='transfer-tit'>
+          <div class='transfer-tit'>
           <span>{option.label}</span>
           <span>
-            <i onClick={() => this.up(option)}><svg-icon icon-class='up'/></i>
-            <i onClick={() => this.down(option)}><svg-icon icon-class='down'/></i>
+          <i onClick={() => this.up(option)}><svg-icon icon-class='up'/></i>
+          <i onClick={() => this.down(option)}><svg-icon icon-class='down'/></i>
           </span>
-        </div>
+          </div>
       )
       }
 
       return (
-      <div class='high-level-search-form'>
+        <div class='high-level-search-form'>
         <el-form
-          ref='elForm'
-          class='table-form'
-          size={this.size}
-          inline={true}
-          on={this.$listeners}
-          attrs={this.$attrs}
+      ref='elForm'
+    class='table-form'
+      size={this.size}
+      inline={true}
+      on={this.$listeners}
+      attrs={this.$attrs}
         >
-          {
-            baseVNodes.map(item => item)
-          }
-          <el-form-item className='right'>
-            {
-              this.$slots.btns ||
-              (
-                <span>
-                  <el-button size={this.size} icon='el-icon-search' type='primary' onClick={this.formSearch}>查 询</el-button>
-                  <el-button size={this.size} icon='el-icon-refresh' onClick={this.formReset}>重 置</el-button>
-                </span>
-              )
-            }
-            <el-link class='link' type='primary' underline={false} onClick={() => this.dialogFormVisible = true }>
-              高级查询 >>
-            </el-link>
-          </el-form-item>
-        </el-form>
-        <el-dialog
-          v-el-drag-dialog
-          width='800px'
-          class='advanced-query-dialog'
-          style='display: none;'
-          title='高级查询'
-          visible={this.dialogFormVisible}
-          on={{ 'update:visible': val => this.dialogFormVisible = val }}
+        {
+          baseVNodes.map(item => item)
+        }
+        <el-form-item className='right'>
+        {
+          this.$slots.btns ||
+            (
+            <span>
+            <el-button size={this.size} icon='el-icon-search' type='primary' onClick={this.formSearch}>查 询</el-button>
+        <el-button size={this.size} icon='el-icon-refresh' onClick={this.formReset}>重 置</el-button>
+      </span>
+    )
+    }
+    <el-link class='link' type='primary' underline={false} onClick={() => this.dialogFormVisible = true }>
+      高级查询 >>
+      </el-link>
+      </el-form-item>
+      </el-form>
+      <el-dialog
+      v-el-drag-dialog
+      width='800px'
+    class='advanced-query-dialog'
+      style='display: none;'
+      title='高级查询'
+      visible={this.dialogFormVisible}
+      on={{ 'update:visible': val => this.dialogFormVisible = val }}
+    >
+    <el-form
+      ref='dialogElForm'
+      size={this.size}
+      inline={true}
+      label-width='78px'
+      on={this.$listeners}
+      attrs={this.$attrs}
         >
-          <el-form
-            ref='dialogElForm'
-            size={this.size}
-            inline={true}
-            label-width='78px'
-            on={this.$listeners}
-            attrs={this.$attrs}
-          >
-            <div>
-              <div class='query-title'>基础查询条件</div>
-              {
-                baseVNodes.map(item => item)
-              }
-            </div>
-            <div>
-              <div class='query-title'>扩展查询条件</div>
-              {
-                extendVNodes.map(item => item)
-              }
-            </div>
-          </el-form>
-          <div slot='footer'>
-            <el-button style='float:left; margin-top: 8px;' size={this.size} icon='el-icon-set-up' onClick={this.openTransferDialog}>自定义查询项</el-button>
-            <el-button style='margin-right:10px;' size={this.size} icon='el-icon-close' onClick={() => this.dialogFormVisible = false}>关 闭</el-button>
-            {
-              (this.$slots.btns && this.$slot.btns.reverse()) ||
-              (
-                <span>
-                  <el-button size={this.size} icon='el-icon-refresh' onClick={this.formReset}>重 置</el-button>
-                  <el-button size={this.size} icon='el-icon-search' type='primary' onClick={this.formSearch}>查 询</el-button>
-                </span>
-              )
-            }
-          </div>
-        </el-dialog>
-        <el-dialog
-          v-el-drag-dialog
-          class='transfer-dialog'
-          width='640px'
-          title='自定义查询项'
-          destroy-on-close
-          visible={this.dialogTransferVisible}
-          on={{ 'update:visible': val => this.dialogTransferVisible = val }}
-        >
-          <div class='transfer-title-wrapper'>
-            <div class='query-title'>扩展查询条件</div>
-            <div class='query-title'>基础查询条件</div>
-          </div>
-          <el-transfer
-            ref='elTransfer'
-            class={{
-              'disable-left-btn': this.disableLeft,
-              'disable-right-btn': this.disableRight
-            }}
-            value={this.transValue}
-            onChange={this.transferChange}
-            onLeft-check-change={val => this.leftChecked = val}
-            onRight-check-change={val => this.rightChecked = val}
-            data={this.transData}
-            titles={[' ', ' ']}
-            scopedSlots={{
-              'left-footer': () => renderTransferTit,
-              'right-footer': () => renderTransferTit
-            }}
-            render-content={renderFunc}
-          />
-          <div slot='footer'>
-            <el-button size={this.size} icon='el-icon-close' onClick={() => this.dialogTransferVisible = false}>关 闭</el-button>
-            <el-button size={this.size} icon='el-icon-refresh' onClick={this.transReset}>重 置</el-button>
-            <el-button size={this.size} icon='el-icon-check' type='primary' onClick={this.transSave}>保 存</el-button>
-          </div>
-        </el-dialog>
+        <div>
+        <div class='query-title'>基础查询条件</div>
+      {
+        baseVNodes.map(item => item)
+      }
+    </div>
+      <div>
+      <div class='query-title'>扩展查询条件</div>
+      {
+        extendVNodes.map(item => item)
+      }
+    </div>
+      </el-form>
+      <div slot='footer'>
+        <el-button style='float:left; margin-top: 8px;' size={this.size} icon='el-icon-set-up' onClick={this.openTransferDialog}>自定义查询项</el-button>
+        <el-button style='margin-right:10px;' size={this.size} icon='el-icon-close' onClick={() => this.dialogFormVisible = false}>关 闭</el-button>
+      {
+        (this.$slots.btns && this.$slot.btns.reverse()) ||
+        (
+        <span>
+        <el-button size={this.size} icon='el-icon-refresh' onClick={this.formReset}>重 置</el-button>
+      <el-button size={this.size} icon='el-icon-search' type='primary' onClick={this.formSearch}>查 询</el-button>
+      </span>
+      )
+      }
+    </div>
+      </el-dialog>
+      <el-dialog
+      v-el-drag-dialog
+    class='transfer-dialog'
+      width='640px'
+      title='自定义查询项'
+      destroy-on-close
+      visible={this.dialogTransferVisible}
+      on={{ 'update:visible': val => this.dialogTransferVisible = val }}
+    >
+    <div class='transfer-title-wrapper'>
+        <div class='query-title'>扩展查询条件</div>
+        <div class='query-title'>基础查询条件</div>
+        </div>
+        <el-transfer
+      ref='elTransfer'
+    class={{
+        'disable-left-btn': this.disableLeft,
+          'disable-right-btn': this.disableRight
+      }}
+      value={this.transValue}
+      onChange={this.transferChange}
+      onLeft-check-change={val => this.leftChecked = val}
+      onRight-check-change={val => this.rightChecked = val}
+      data={this.transData}
+      titles={[' ', ' ']}
+      scopedSlots={{
+        'left-footer': () => renderTransferTit,
+          'right-footer': () => renderTransferTit
+      }}
+      render-content={renderFunc}
+      />
+      <div slot='footer'>
+        <el-button size={this.size} icon='el-icon-close' onClick={() => this.dialogTransferVisible = false}>关 闭</el-button>
+      <el-button size={this.size} icon='el-icon-refresh' onClick={this.transReset}>重 置</el-button>
+      <el-button size={this.size} icon='el-icon-check' type='primary' onClick={this.transSave}>保 存</el-button>
+      </div>
+      </el-dialog>
       </div>
     )
     }
@@ -416,202 +416,206 @@
 </script>
 
 <style lang="scss" scoped>
-.high-level-search-form{
-  & /deep/ .el-form-item__label{
-    padding-right: 6px;
-    &,&>label{
-      color: #333;
-      font-size: 14px;
-      font-weight: normal;
-    }
-    &>.el-form-item{
-      margin-right: 0;
-      margin-bottom: 0 !important;
-    }
-  }
-  .table-form /deep/ .el-form-item{
-    margin-bottom: 8px;
-  }
-  .table-form .link {
-    margin-left: 10px;
-    color: $themeColor;
-  }
-}
-.right{
-  & /deep/ .el-form-item__content{
-    display: flex;
-    .el-link{
-      flex-shrink: 0;
-    }
-  }
-}
-.advanced-query-dialog{
-  & /deep/.el-form {
-    &>div:first-child{
-      margin-bottom: 10px;
-    }
-    .el-form-item{
-      margin-bottom: 13px;
-      .el-input{
-        max-width: 140px;
-      }
-    }
-  }
-}
-.query-title{
-  padding-left: 18px;
-  position: relative;
-  font-size: 16px;
-  color: #333333;
-  font-weight: bold;
-  margin-bottom: 16px;
-  &:before{
-    content: '';
-    width: 4px;
-    height: 20px;
-    background: $themeColor;
-    position: absolute;
-    top: -2px;
-    left: 0;
-  }
-}
-.transfer-dialog{
-  .transfer-title-wrapper{
-    height: 20px;
-    margin-bottom: 18px;
-    position: relative;
-    .query-title{
-      position: absolute;
-      top: 0;
-      left: 34px;
-      &:nth-of-type(2){
-        left: 346px;
-      }
-    }
-  }
-  & /deep/.el-transfer{
-    text-align: center;
-    .el-transfer-panel{
-      text-align: left;
-      .el-transfer-panel__header .el-checkbox__label>span{
-        position: relative;
-        right: 0;
+  .high-level-search-form {
+    & /deep/ .el-form-item__label {
+      padding-right: 6px;
+      &,
+      & > label {
         font-size: 14px;
-        &:before{
-          content: '已选';
-        }
-        &:after{
-          content: '条';
+        font-weight: normal;
+        color: #333;
+      }
+      & > .el-form-item {
+        margin-right: 0;
+        margin-bottom: 0 !important;
+      }
+    }
+    .table-form /deep/ .el-form-item {
+      margin-bottom: 8px;
+    }
+    .table-form .link {
+      margin-left: 10px;
+      color: $themeColor;
+    }
+  }
+  .right {
+    & /deep/ .el-form-item__content {
+      display: flex;
+      .el-link {
+        flex-shrink: 0;
+      }
+    }
+  }
+  .advanced-query-dialog {
+    & /deep/.el-form {
+      & > div:first-child {
+        margin-bottom: 10px;
+      }
+      .el-form-item {
+        margin-bottom: 13px;
+        .el-input {
+          max-width: 140px;
         }
       }
     }
-    .el-transfer__buttons{
-      .el-button{
-        display: block;
-        width: 24px;
-        height: 24px;
-        padding: 0;
-        margin: 0;
-        &:nth-of-type(1){
-          margin-bottom: 10px;
-        }
-      }
+  }
+  .query-title {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    &::before {
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 4px;
+      height: 20px;
+      background: $themeColor;
+      content: '';
     }
-    .el-transfer-panel{
-      width: 220px;
-      height: 380px;
+  }
+  .transfer-dialog {
+    .transfer-title-wrapper {
       position: relative;
-      .el-transfer-panel__header{
-        background: #fff;
-      }
-      .el-transfer-panel__footer{
-        height: 32px;
+      height: 20px;
+      margin-bottom: 18px;
+      .query-title {
         position: absolute;
-        top: 40px;
-        &:after{
-          height: 0;
+        top: 0;
+        left: 34px;
+        &:nth-of-type(2) {
+          left: 346px;
         }
-        .transfer-tit{
-          height: 32px;
-          line-height: 32px;
-          background: #E5E7F2;
+      }
+    }
+    & /deep/.el-transfer {
+      text-align: center;
+      .el-transfer-panel {
+        text-align: left;
+        .el-transfer-panel__header .el-checkbox__label > span {
+          position: relative;
+          right: 0;
           font-size: 14px;
-          span:nth-of-type(1){
-            margin-left: 49px;
+          &::before {
+            content: '已选';
           }
-          span:nth-of-type(2){
-            margin-left: 90px;
+          &::after {
+            content: '条';
           }
         }
       }
-      .el-transfer-panel__body{
-        margin-top: 32px;
-        .el-checkbox.el-transfer-panel__item{
-          margin-right: 0;
-        }
-        .transfer-tit{
-          height: 32px;
-          line-height: 32px;
-          font-size: 14px;
-          span:nth-of-type(1){
-            display: inline-block;
-            width: 110px;
-            padding-left: 10px;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-            cursor: move;
+      .el-transfer__buttons {
+        .el-button {
+          display: block;
+          width: 24px;
+          height: 24px;
+          padding: 0;
+          margin: 0;
+          &:nth-of-type(1) {
+            margin-bottom: 10px;
           }
-          span:nth-of-type(2){
-            display: inline-block;
-            width: 60px;
-            text-align: center;
-            i{
-              display: inline-block;
-              height: 32px;
-              width: 30px;
-              vertical-align: middle;
-              text-align: center;
-              line-height: 32px;
-              cursor: pointer;
-              color: #999;
+        }
+      }
+      /* stylelint-disable no-duplicate-selectors */
+      .el-transfer-panel {
+        position: relative;
+        width: 220px;
+        height: 380px;
+        .el-transfer-panel__header {
+          background: #fff;
+        }
+        .el-transfer-panel__footer {
+          position: absolute;
+          top: 40px;
+          height: 32px;
+          &::after {
+            height: 0;
+          }
+          .transfer-tit {
+            height: 32px;
+            font-size: 14px;
+            line-height: 32px;
+            background: #E5E7F2;
+            span:nth-of-type(1) {
+              margin-left: 49px;
+            }
+            span:nth-of-type(2) {
+              margin-left: 90px;
             }
           }
         }
-        .el-checkbox__label{
-          .transfer-tit{
-            display: none;
+        .el-transfer-panel__body {
+          margin-top: 32px;
+          .el-checkbox.el-transfer-panel__item {
+            margin-right: 0;
           }
-        }
-        .el-transfer-panel__item__fix{
-          &:hover {
-            background: #E6F7FF;
+          .transfer-tit {
+            height: 32px;
+            font-size: 14px;
+            line-height: 32px;
+            span:nth-of-type(1) {
+              display: inline-block;
+              width: 110px;
+              padding-left: 10px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              cursor: move;
+            }
+            span:nth-of-type(2) {
+              display: inline-block;
+              width: 60px;
+              text-align: center;
+              i {
+                display: inline-block;
+                width: 30px;
+                height: 32px;
+                line-height: 32px;
+                color: #999;
+                text-align: center;
+                vertical-align: middle;
+                cursor: pointer;
+              }
+            }
           }
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          .el-transfer-panel__item__fix__option{
-            width: 100%;
+          .el-checkbox__label {
+            .transfer-tit {
+              display: none;
+            }
+          }
+          .el-transfer-panel__item__fix {
+            &:hover {
+              background: #E6F7FF;
+            }
+
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .el-transfer-panel__item__fix__option {
+              display: flex;
+              width: 100%;
+            }
           }
         }
       }
+      /* stylelint-enable no-duplicate-selectors */
+    }
+    .disable-left-btn /deep/ .el-transfer__buttons > button:first-child,
+    .disable-right-btn /deep/ .el-transfer__buttons > button:last-child {
+      color: #FFF;
+      cursor: not-allowed;
+      background-color: #a0cfff;
+      background-image: none;
+      border-color: #a0cfff;
     }
   }
-  .disable-left-btn /deep/ .el-transfer__buttons>button:first-child ,
-  .disable-right-btn /deep/ .el-transfer__buttons>button:last-child {
-    color: #FFF;
-    background-color: #a0cfff;
-    border-color: #a0cfff;
-    cursor: not-allowed;
-    background-image: none;
-  }
-}
 </style>
 <style>
-  .el-table-form-ghost{
-    opacity: .8;
-    color: #fff!important;
-    background: #42b983!important;
+  .el-table-form-ghost {
+    color: #fff !important;
+    background: #42b983 !important;
+    opacity: 0.8;
   }
 </style>

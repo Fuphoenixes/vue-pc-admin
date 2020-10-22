@@ -3,7 +3,7 @@
     <input ref="excel-upload-input" class="excel-upload-input" type="file" accept=".xlsx, .xls" @change="handleClick">
     <div class="drop" @drop="handleDrop" @dragover="handleDragover" @dragenter="handleDragover">
       拖拽 excel 文件到此处或者
-      <el-button :loading="loading" style="margin-left:16px;" size="mini" type="primary" @click="handleUpload">
+      <el-button :loading="loading" style="margin-left: 16px;" size="mini" type="primary" @click="handleUpload">
         游览
       </el-button>
     </div>
@@ -127,20 +127,20 @@
 </script>
 
 <style scoped>
-.excel-upload-input{
-  display: none;
+.excel-upload-input {
   z-index: -9999;
+  display: none;
 }
-.drop{
-  border: 2px dashed #bbb;
+.drop {
+  position: relative;
   width: 600px;
   height: 160px;
-  line-height: 160px;
   margin: 0 auto;
   font-size: 24px;
-  border-radius: 5px;
-  text-align: center;
+  line-height: 160px;
   color: #bbb;
-  position: relative;
+  text-align: center;
+  border: 2px dashed #bbb;
+  border-radius: 5px;
 }
 </style>

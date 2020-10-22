@@ -24,7 +24,7 @@
         <!--          <el-dropdown-item>Docs</el-dropdown-item>-->
         <!--        </a>-->
         <el-dropdown-item divided @click.native="logout">
-          <span style="display:block;">退出登录</span>
+          <span style="display: block;">退出登录</span>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
@@ -64,59 +64,59 @@
 <style lang="scss" scoped>
 
   .right-menu {
-		display: flex;
-		height: 100%;
+    display: flex;
+    height: 100%;
     &:focus {
       outline: none;
     }
 
     .right-menu-item {
       display: inline-block;
-      padding: 0 8px;
       height: 100%;
+      padding: 0 8px;
       font-size: 18px;
       color: #5a5e66;
       vertical-align: text-bottom;
 
       &.hover-effect {
         cursor: pointer;
-        transition: background .3s;
+        transition: background 0.3s;
 
         &:hover {
-          background: rgba(0, 0, 0, .025)
+          background: rgba(0, 0, 0, 0.025);
         }
       }
     }
 
-		.menu-item {
-			height: 100%;
-			display: flex;
-			align-items: center;
-			padding: 0 10px;
-			color: #fff;
-			cursor: pointer;
-			&:hover{
-				background: rgba(0,0,0,.1);
-			}
+    .menu-item {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 10px;
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
 
-			.user-avatar {
+      .user-avatar {
         width: 30px;
         height: 30px;
+        margin-right: 8px;
         border-radius: 10px;
-				margin-right: 8px;
-			}
+      }
 
-			.el-icon-caret-bottom {
+      .el-icon-caret-bottom {
         font-size: 12px;
-			}
-		}
+      }
+    }
   }
-  .user-dropdown{
+  .user-dropdown {
     min-width: 100px;
   }
 </style>
 <style>
-	.theme-picker-dropdown .el-color-dropdown__link-btn {
+  .theme-picker-dropdown .el-color-dropdown__link-btn {
     display: none;
-	}
+  }
 </style>

@@ -87,71 +87,71 @@
 </script>
 
 <style lang="scss" scoped>
-  .fu-page{
-    margin: 8px;
-    min-height: calc(100% - 16px);
+  .fu-page {
     position: relative;
+    min-height: calc(100% - 16px);
+    margin: 8px;
     background: #fff;
-    .fu-page-header{
-      height: 36px;
-      padding-left: 10px;
-      border-bottom: 1px solid #DCDFE6;
+    .fu-page-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 36px;
+      padding-left: 10px;
       font-size: 16px;
       color: #333;
-      .fu-page-header-right{
+      border-bottom: 1px solid #DCDFE6;
+      .fu-page-header-right {
         height: 100%;
-        &>span{
+        & > span {
           display: inline-block;
           height: 100%;
-          border-left: 1px solid #DCDFE6;
-          text-align: center;
           line-height: 36px;
           color: #999;
+          text-align: center;
+          border-left: 1px solid #DCDFE6;
         }
-        .export{
+        .export {
           width: 86px;
           & .is-loading {
-            opacity: .6;
+            opacity: 0.6;
           }
-          &>button{
+          & > button {
             font-size: 16px;
-            &>span{
+            & > span {
               color: $themeColor;
             }
           }
         }
-        .ping{
+        .ping {
           width: 40px;
         }
       }
     }
-    .fu-page-body{
-      min-height: calc(100% - 36px);
-      background: #fff;
+    .fu-page-body {
       position: absolute;
       top: 36px;
-      left: 0;
       right: 0;
+      left: 0;
+      min-height: calc(100% - 36px);
       padding: 10px;
-      &.noHeader{
-        min-height: 100% !important;
+      background: #fff;
+      &.noHeader {
         top: 0;
+        min-height: 100% !important;
       }
     }
   }
-  .fullscreen.fu-page{
+  .fullscreen.fu-page {
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
+    left: 0;
     z-index: 100;
     margin: 0;
-    /deep/ .el-dialog__wrapper{
-      background: rgba(0,0,0,.5)
+    /deep/ .el-dialog__wrapper {
+      background: rgba(0, 0, 0, 0.5);
     }
   }
 </style>
@@ -159,35 +159,35 @@
   .PAGE-SIZE-medium .fu-page {
     .fu-page-header {
       height: 48px;
-      .fu-page-header-right{
-        &>span {
+      .fu-page-header-right {
+        & > span {
           line-height: 48px;
         }
-        .ping{
+        .ping {
           width: 48px;
         }
       }
     }
-    .fu-page-body{
-      min-height: calc(100% - 48px);
+    .fu-page-body {
       top: 48px;
+      min-height: calc(100% - 48px);
     }
   }
   .PAGE-SIZE-small .fu-page {
     .fu-page-header {
       height: 42px;
-      .fu-page-header-right{
-        &>span {
+      .fu-page-header-right {
+        & > span {
           line-height: 42px;
         }
-        .ping{
+        .ping {
           width: 42px;
         }
       }
     }
-    .fu-page-body{
-      min-height: calc(100% - 42px);
+    .fu-page-body {
       top: 42px;
+      min-height: calc(100% - 42px);
     }
   }
 </style>

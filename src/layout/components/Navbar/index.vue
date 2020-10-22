@@ -99,19 +99,19 @@
   }
 </script>
 <style lang="scss" scoped>
-  .navbar-menu{
+  .navbar-menu {
     flex: 1;
-    & /deep/ .el-menu.el-menu--horizontal{
-      border-bottom: none;
+    & /deep/ .el-menu.el-menu--horizontal {
       display: flex;
-      .el-submenu__title{
-        border-bottom-width: 2px;
+      border-bottom: none;
+      .el-submenu__title {
         border-bottom-style: solid;
+        border-bottom-width: 2px;
       }
     }
-    & /deep/ .el-menu-item{
+    & /deep/ .el-menu-item {
       padding: 0;
-      &>a{
+      & > a {
         display: inline-block;
         width: 100%;
         height: 100%;

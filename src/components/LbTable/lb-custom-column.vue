@@ -156,66 +156,66 @@
   }
 </script>
 <style>
-	.lb-custom-colnum-ghost{
-    opacity: .8;
-    color: #fff!important;
-    background: #42b983!important;
-	}
+  .lb-custom-colnum-ghost {
+    color: #fff !important;
+    background: #42b983 !important;
+    opacity: 0.8;
+  }
 </style>
 <style lang="scss" scoped>
   .dialog {
-    & /deep/ .table-index .cell{
+    & /deep/ .table-index .cell {
       padding-right: 0;
       padding-left: 0;
     }
-    & /deep/ .table-selection .cell{
+    & /deep/ .table-selection .cell {
       padding-left: 0;
     }
     & /deep/ td.table-arrow .cell {
-      cursor: pointer;
-      color: #999;
-      padding: 0 20px;
       display: flex;
       align-items: center;
       justify-content: space-around;
-      i{
+      padding: 0 20px;
+      color: #999;
+      cursor: pointer;
+      i {
         display: inline-block;
-        height: 32px;
         width: 30px;
-        vertical-align: middle;
-        text-align: center;
+        height: 32px;
         line-height: 32px;
+        text-align: center;
+        vertical-align: middle;
         cursor: pointer;
       }
     }
-    & /deep/ .el-table tr td{
+    & /deep/ .el-table tr td {
       cursor: move;
     }
-  }
-	.el-icon-rank,.el-icon-top,.el-icon-bottom{
-		font-size: 17px;
-		cursor: pointer;
-		font-weight: bold;
-	}
-	.el-icon-bottom{
-		margin-left: 20px;
-	}
-	.footer-right{
-		float: left;
-		margin-top: 13px;
-	}
-	.dialog {
-    & /deep/ .el-dialog__body{
-			padding: 0 !important;
-		}
-    & /deep/ .el-table{
+    & /deep/ .el-dialog__body {
+      padding: 0 !important;
+    }
+    & /deep/ .el-table {
       border: none !important;
     }
-	}
-	.check{
-		height: 40px;
-		display: flex;
-		align-items: center;
+  }
+  .el-icon-rank,
+  .el-icon-top,
+  .el-icon-bottom {
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .el-icon-bottom {
+    margin-left: 20px;
+  }
+  .footer-right {
+    float: left;
+    margin-top: 13px;
+  }
+  .check {
+    display: flex;
+    align-items: center;
     justify-content: space-around;
-	}
+    height: 40px;
+  }
 </style>

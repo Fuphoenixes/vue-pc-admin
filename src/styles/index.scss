@@ -3,10 +3,10 @@
 
 body {
   height: 100%;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 }
 
 label {
@@ -15,18 +15,27 @@ label {
 
 html {
   height: 100%;
-  box-sizing: border-box;
   min-width: 768px;
   min-height: 600px;
+  box-sizing: border-box;
 }
 
-ul,li,dl,dt,dd{
-	list-style: none;
+ul,
+li,
+dl,
+dt,
+dd {
+  list-style: none;
 }
 
-ul,li,dl,dt,dd,p{
-	margin: 0;
-	padding: 0;
+ul,
+li,
+dl,
+dt,
+dd,
+p {
+  padding: 0;
+  margin: 0;
 }
 
 #app {
@@ -34,8 +43,8 @@ ul,li,dl,dt,dd,p{
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -47,9 +56,9 @@ a:active {
 a,
 a:focus,
 a:hover {
-  cursor: pointer;
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 div:focus {
@@ -57,41 +66,40 @@ div:focus {
 }
 
 .clearfix {
-  &:after {
-    visibility: hidden;
+  &::after {
     display: block;
+    height: 0;
+    clear: both;
     font-size: 0;
     content: " ";
-    clear: both;
-    height: 0;
+    visibility: hidden;
   }
 }
 
 // main-container global css
 .app-page {
-  margin: 6px 8px;
-  padding: 10px 10px 0 10px;
   height: calc(100% - 12px);
+  padding: 10px 10px 0 10px;
+  margin: 6px 8px;
   background: #fff;
 }
 
-
 //公共菜单样式
 .el-menu--vertical {
-  &>.el-menu {
+  & > .el-menu {
     .svg-icon {
       margin-right: 16px;
     }
   }
 }
 .el-menu--horizontal .el-menu--popup {
-	.el-menu-item {
-		padding: 0;
-		&>a{
-			display: inline-block;
-			width: 100%;
-			height: 100%;
-			padding: 0 10px;
-		}
-	}
+  .el-menu-item {
+    padding: 0;
+    & > a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      padding: 0 10px;
+    }
+  }
 }

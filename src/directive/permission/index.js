@@ -1,7 +1,8 @@
-import permission from './permission'
+import permission, { hasPermission } from './permission'
 
 const install = function(Vue) {
   Vue.directive('permission', permission)
+  Vue.prototype.$permission = hasPermission
 }
 
 if (window.Vue) {

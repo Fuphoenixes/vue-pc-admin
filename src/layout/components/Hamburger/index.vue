@@ -23,10 +23,10 @@
 
 <style scoped>
 .hamburger {
+  display: inline-block;
   width: 20px !important;
   height: 20px !important;
   vertical-align: middle !important;
-  display: inline-block;
 }
 
 .hamburger.is-active {

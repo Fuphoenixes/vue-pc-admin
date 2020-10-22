@@ -181,25 +181,25 @@
 
 <style lang="scss" scoped>
   .tags-view-container {
-    height: 34px;
     width: 100%;
+    height: 34px;
     background: #fff;
     border-bottom: 1px solid #d8dce5;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 0 3px 0 rgba(0, 0, 0, .04);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
     .tags-view-wrapper {
       .tags-view-item {
-        display: inline-block;
         position: relative;
-        cursor: pointer;
+        display: inline-block;
         height: 26px;
-        line-height: 26px;
-        border: 1px solid #d9ecff;
-        color: #409eff;
-        background: #fff;
         padding: 0 8px;
-        font-size: 12px;
-        margin-left: 5px;
         margin-top: 4px;
+        margin-left: 5px;
+        font-size: 12px;
+        line-height: 26px;
+        color: #409eff;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #d9ecff;
         border-radius: 3px;
         &:first-of-type {
           margin-left: 15px;
@@ -208,37 +208,37 @@
           margin-right: 15px;
         }
         &.active {
-          background-color: #409EFF;
           color: #fff;
+          background-color: #409EFF;
           border-color: #409EFF;
           &::before {
-            content: '';
-            background: #fff;
+            position: relative;
             display: inline-block;
             width: 8px;
             height: 8px;
-            border-radius: 50%;
-            position: relative;
             margin-right: 2px;
+            background: #fff;
+            border-radius: 50%;
+            content: '';
           }
         }
       }
     }
     .contextmenu {
-      margin: 0;
-      background: #fff;
-      z-index: 3000;
       position: absolute;
-      list-style-type: none;
+      z-index: 3000;
       padding: 5px 0;
-      border-radius: 4px;
+      margin: 0;
       font-size: 12px;
       font-weight: 400;
       color: #333;
-      box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .3);
+      list-style-type: none;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
       li {
-        margin: 0;
         padding: 7px 16px;
+        margin: 0;
         cursor: pointer;
         &:hover {
           background: #eee;
@@ -255,28 +255,28 @@
       .el-icon-close {
         width: 16px;
         height: 16px;
-        line-height: 16px;
         font-size: 18px;
-        border-radius: 50%;
+        line-height: 16px;
         text-align: center;
+        vertical-align: -3px;
+        border-radius: 50%;
         // transition: all .3s cubic-bezier(.645, .045, .355, 1);
         transform-origin: 100% 50%;
-        vertical-align: -3px;
-        &:before {
-          transform: scale(.6) translateX(-2px);
+        &::before {
           display: inline-block;
+          transform: scale(0.6) translateX(-2px);
         }
         &:hover {
-          background-color: rgba(0,0,0,.25);
           color: #fff;
+          background-color: rgba(0, 0, 0, 0.25);
         }
       }
     }
   }
   .tags-view-ghost {
-    border: 2px dashed $themeColor !important;
     color: transparent !important;
     background: transparent !important;
+    border: 2px dashed $themeColor !important;
     & * {
       visibility: hidden;
     }

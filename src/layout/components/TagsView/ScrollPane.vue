@@ -69,13 +69,13 @@
 
 <style lang="scss" scoped>
 .scroll-container {
-  white-space: nowrap;
   position: relative;
-  overflow: hidden;
   width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
   /deep/ {
     .el-scrollbar__bar {
-      bottom: 0px;
+      bottom: 0;
     }
     .el-scrollbar__wrap {
       height: 49px;

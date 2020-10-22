@@ -122,32 +122,33 @@
 
 <style lang="scss" scoped>
   .el-table-form {
-    & /deep/ .el-row{
+    & /deep/ .el-row {
       flex-wrap: wrap;
     }
-    .item /deep/ .el-form-item{
+    .item /deep/ .el-form-item {
       display: flex;
-      .el-form-item__label{
+      .el-form-item__label {
         flex-shrink: 0;
-        &,&>label{
-          color: #333;
+        &,
+        & > label {
           font-size: 14px;
           font-weight: normal;
+          color: #333;
         }
       }
-      .el-form-item__content{
+      .el-form-item__content {
         flex: 1;
-        &>*:not(.el-col){
+        & > *:not(.el-col) {
           width: 100%;
         }
       }
     }
   }
-  .right{
+  .right {
 
-    & /deep/ .el-form-item__content{
+    & /deep/ .el-form-item__content {
       display: flex;
-      .el-link{
+      .el-link {
         flex-shrink: 0;
       }
     }

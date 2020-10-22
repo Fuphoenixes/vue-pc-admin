@@ -374,63 +374,60 @@
 
 </script>
 <style lang="scss" scoped>
-	.nowrap /deep/ .cell {
-		white-space: nowrap !important;
-	}
-  .lb-table{
+  .nowrap /deep/ .cell {
+    white-space: nowrap !important;
+  }
+  .lb-table {
     overflow: hidden;
   }
-  .lb-table-pagination{
-    box-sizing: border-box;
+  .lb-table-pagination {
+    position: relative;
+    display: inline-block;
     height: 30px;
-    position: absolute;
-    &>*{
+    padding: 0;
+    margin-top: 5px !important;
+    box-sizing: border-box;
+    & > * {
       display: inline-block;
       float: inherit;
     }
-  }
-	.lb-table-pagination{
-    position: relative;
-    padding: 0;
-    display: inline-block;
-    margin-top: 5px !important;
-    & /deep/ .btn-prev{
+    & /deep/ .btn-prev {
       margin-left: 0;
     }
-    & /deep/ .el-pagination__sizes{
+    & /deep/ .el-pagination__sizes {
       margin-right: 0;
     }
-    & /deep/ .el-pagination__jump{
+    & /deep/ .el-pagination__jump {
       margin-left: 5px;
     }
-    & /deep/ .el-pagination__rightwrapper{
+    & /deep/ .el-pagination__rightwrapper {
       float: right;
+      margin-left: 10px;
       font-weight: normal;
       color: #606266;
-      margin-left: 10px;
-      span{
+      span {
         line-height: 31px;
       }
       .el-button {
-        border: 1px solid #DCDFE6;
         min-width: inherit;
-        span{
+        border: 1px solid #DCDFE6;
+        span {
           line-height: inherit;
         }
       }
     }
   }
-	.lb-table /deep/ .el-pagination.is-background .el-pager li:not(.disabled).active{
-		color: #fff !important;
-	}
+  .lb-table /deep/ .el-pagination.is-background .el-pager li:not(.disabled).active {
+    color: #fff !important;
+  }
 </style>
 <style lang="scss">
   // fix:使用此样式可以修复使用自适应高度指令（v-el-height-adaptive-table）后，表尾合计行无法显示bug
-  .el-adaptive-table-show-summary{
-    .el-table{
-      overflow: visible;
+  .el-adaptive-table-show-summary {
+    .el-table {
       height: unset !important;
-      .el-table__footer-wrapper{
+      overflow: visible;
+      .el-table__footer-wrapper {
         display: block !important;
       }
     }

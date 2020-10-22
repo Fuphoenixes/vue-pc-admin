@@ -43,30 +43,30 @@
     position: relative;
     width: 100%;
     height: 60px;
-    line-height: 60px;
     padding-left: 20px;
     overflow: hidden;
+    line-height: 60px;
 
     & .sidebar-logo-link {
-      height: 100%;
       width: 100%;
+      height: 100%;
 
       & .sidebar-logo {
         width: 32px;
         height: 32px;
-        vertical-align: middle;
         margin-right: 8px;
         color: #fff;
+        vertical-align: middle;
       }
 
       & .sidebar-title {
         display: inline-block;
         margin: 0;
-        color: #fff;
+        font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+        font-size: 18px;
         font-weight: 600;
         line-height: 50px;
-        font-size: 18px;
-        font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+        color: #fff;
         vertical-align: middle;
       }
     }

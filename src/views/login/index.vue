@@ -161,15 +161,15 @@
 <style lang="scss" scoped>
   .login-container {
     position: relative;
-    min-height: 100%;
     width: 100%;
-    background-color: #f0f2f5;
-    background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
-    background-repeat: no-repeat;
-    background-position: center 110px;
-    background-size: 100%;
+    min-height: 100%;
     overflow: hidden;
     color: #5a5e66;
+    background-color: #f0f2f5;
+    background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
+    background-position: center 110px;
+    background-repeat: no-repeat;
+    background-size: 100%;
 
     .title-container {
       position: relative;
@@ -178,12 +178,12 @@
       padding: 100px 0 0;
       margin: 0 auto;
       .title {
-        color: rgba(0,0,0,.85);
-        font-weight: 600;
-        font-size: 33px;
-        text-align: center;
         margin-bottom: 20px;
-        & /deep/ .svg-icon{
+        font-size: 33px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.85);
+        text-align: center;
+        & /deep/ .svg-icon {
           color: $themeColor;
         }
         .logo {
@@ -201,10 +201,10 @@
       max-width: 100%;
       margin: 0 auto;
       & /deep/ .el-tabs__nav-wrap {
-        &:after{
+        &::after {
           display: none;
         }
-        .el-tabs__nav-scroll{
+        .el-tabs__nav-scroll {
           display: flex;
           justify-content: center;
         }
@@ -221,24 +221,25 @@
       & /deep/ .el-input {
         input {
           height: 40px;
-          line-height: 40px;
-          padding-left: 40px;
           padding-right: 40px;
+          padding-left: 40px;
+          line-height: 40px;
           border-radius: 0;
         }
-        .el-input__prefix, .el-input__suffix {
-          line-height: 40px;
+        .el-input__prefix,
+        .el-input__suffix {
           width: 40px;
+          line-height: 40px;
           color: $themeColor;
-          .svg-icon{
+          .svg-icon {
             font-size: 16px;
             vertical-align: -0.25em;
           }
         }
-        .el-input__prefix{
+        .el-input__prefix {
           left: 0;
         }
-        .el-input__suffix{
+        .el-input__suffix {
           right: 0;
         }
       }
@@ -246,49 +247,49 @@
 
     .other-login {
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       width: 368px;
       max-width: 100%;
       margin: 0 auto;
       font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      & /deep/ .svg-icon{
-        font-size: 24px;
+      & /deep/ .svg-icon {
         margin-left: 10px;
+        font-size: 24px;
         vertical-align: -0.25em;
       }
     }
 
     .copy-right {
-      font-size: 14px;
-      text-align: center;
       position: absolute;
       bottom: 10px;
       width: 100%;
+      font-size: 14px;
+      text-align: center;
     }
 
     .yzm-form-item {
-      & /deep/ .el-form-item__content{
+      & /deep/ .el-form-item__content {
         display: flex;
-        .el-button{
-          border-radius: 0;
+        .el-button {
           margin-left: 10px;
+          border-radius: 0;
         }
       }
     }
 
     .svg-container {
+      display: inline-block;
+      width: 40px;
       color: $themeColor;
       vertical-align: middle;
-      width: 40px;
-      display: inline-block;
       cursor: pointer;
     }
 
     .submit-btn {
-      width:100%;
-      margin-bottom:20px;
+      width: 100%;
+      margin-bottom: 20px;
       border-radius: 0;
     }
   }

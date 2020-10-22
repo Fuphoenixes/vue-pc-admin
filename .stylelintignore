@@ -1,0 +1,18 @@
+# .stylelintignore
+# 旧的不需打包的样式库
+*.min.css
+
+# 其他类型文件
+*.js
+*.jpg
+*.woff
+
+src/assets
+src/components/ElMenu
+src/components/ElTreeSelect
+src/components/FuCkEditor
+src/components/HighLevelSearchForm/components
+public
+dist
+src/components/vue-image-crop-upload
+src/directive/waves

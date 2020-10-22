@@ -1,28 +1,28 @@
 .layout4-aside {
-  transition: width 0.28s;
+  position: relative;
+  z-index: 10;
   width: 100% !important;
   height: 100%;
   background-color: $themeColor;
-  position: relative;
-  z-index: 10;
+  transition: width 0.28s;
 }
 
 .layout4-navbar {
-  height: 100%;
-  overflow: hidden;
   position: relative;
   z-index: 1;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
-  padding-right: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
+  padding-right: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
   .navbar-left {
     display: flex;
-    height: 100%;
     align-items: center;
+    height: 100%;
   }
 
   .sidebar-logo-container {
@@ -38,11 +38,11 @@
   }
 
   .right-menu .menu-item {
-    background: #fff !important;
     color: #303133 !important;
+    background: #fff !important;
 
     &:hover {
-      background: rgba(0, 0, 0, .025) !important;
+      background: rgba(0, 0, 0, 0.025) !important;
     }
   }
 }
@@ -50,38 +50,38 @@
 //布局
 .layout4 {
   .app-container {
-    height: 100%;
-    width: 100%;
-    background: #F0F2F5;
     //background: blue;
     position: relative;
+    width: 100%;
+    height: 100%;
+    background: #F0F2F5;
 
     .app-header {
-      height: 60px;
       position: relative;
       z-index: 4;
+      height: 60px;
       box-shadow: 0 2px 4px 0 rgba(96, 96, 96, 0.16);
     }
 
     .app-container-in {
+      position: relative;
+      width: 100%;
+      height: calc(100% - 60px);
       //background: blue;
       background: #F0F2F5;
-      height: calc(100% - 60px);
-      width: 100%;
-      position: relative;
 
       .app-aside {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
         width: $sideBarWidth;
         height: 100%;
         //background: yellow;
         background: $themeColor;
-        box-shadow: 2px 0 6px rgba(0,21,41,.35);
-        transition: width .28s;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 3;
+        box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+        transition: width 0.28s;
 
         // 侧边栏滚动条
         .el-scrollbar {
@@ -101,33 +101,30 @@
         }
 
         .hamburger-container {
-          line-height: 30px;
-          text-align: center;
           height: 30px;
-          cursor: pointer;
-          transition: background .3s;
-          -webkit-tap-highlight-color: transparent;
+          line-height: 30px;
           color: #fff;
-          background: rgba(0, 0, 0, .05);
+          text-align: center;
+          cursor: pointer;
+          background: rgba(0, 0, 0, 0.05);
+          transition: background 0.3s;
+          -webkit-tap-highlight-color: transparent;
         }
-
       }
 
       .app-main {
-        margin-left: $sideBarWidth;
-        transition: margin-left .28s;
-        height: 100%;
         position: relative;
+        height: 100%;
+        margin-left: $sideBarWidth;
+        transition: margin-left 0.28s;
         .app-main-in {
-          height: 100%;
-          background: #F0F2F5;
           position: relative;
+          height: 100%;
           overflow-y: auto;
+          background: #F0F2F5;
         }
       }
-
     }
-
   }
 
   .hideSidebar {
@@ -165,17 +162,19 @@
 .layout4 .el-menu {
   background-color: $themeColor;
 
-  .el-menu-item, .el-submenu__title {
-    color: rgba(255, 255, 255, .7);
+  .el-menu-item,
+  .el-submenu__title {
+    color: rgba(255, 255, 255, 0.7);
     background-color: $themeColor;
 
     .el-submenu__icon-arrow {
-      color: rgba(255, 255, 255, .5);
+      color: rgba(255, 255, 255, 0.5);
     }
 
-    &:hover, &:focus {
-      background-color: rgba(0, 0, 0, .1);
+    &:hover,
+    &:focus {
       color: #fff;
+      background-color: rgba(0, 0, 0, 0.1);
 
       .el-submenu__icon-arrow {
         color: #fff;
@@ -183,8 +182,8 @@
     }
 
     &.is-active {
-      background-color: rgba(0, 0, 0, .2);
       color: #fff;
+      background-color: rgba(0, 0, 0, 0.2);
     }
   }
 

@@ -1,18 +1,19 @@
-.layout1-aside{
-  transition: width 0.28s;
+.layout1-aside {
+  position: relative;
+  z-index: 10;
   width: 100% !important;
   height: 100%;
   background-color: $themeColor;
-  position: relative;
-  z-index: 10;
-  .sidebar-logo-container{
-    .sidebar-logo-link{
+  transition: width 0.28s;
+  .sidebar-logo-container {
+    .sidebar-logo-link {
       display: flex;
       align-items: center;
       .sidebar-title {
         display: inline-block;
         line-height: 18px;
         flex: 1;
+
         @include nowrap(3);
       }
     }
@@ -20,105 +21,104 @@
 }
 
 .layout1-navbar {
-  height: 100%;
-  overflow: hidden;
   position: relative;
   z-index: 1;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
-  padding-right: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .navbar-left{
+  height: 100%;
+  padding-right: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  .navbar-left {
     display: flex;
-    height: 100%;
     align-items: center;
+    height: 100%;
   }
   .hamburger-container {
-    line-height: 60px;
     height: 100%;
+    line-height: 60px;
     cursor: pointer;
-    transition: background .3s;
-    -webkit-tap-highlight-color:transparent;
+    transition: background 0.3s;
+    -webkit-tap-highlight-color: transparent;
 
     &:hover {
-      background: rgba(0, 0, 0, .025)
+      background: rgba(0, 0, 0, 0.025);
     }
   }
 
-  .right-menu .menu-item{
-    background: #fff !important;
+  .right-menu .menu-item {
     color: #303133 !important;
-    &:hover{
-      background: rgba(0,0,0,.025) !important;
+    background: #fff !important;
+    &:hover {
+      background: rgba(0, 0, 0, 0.025) !important;
     }
   }
 }
 
 //布局
-.layout1{
-  .app-container{
-    height: 100%;
-    width: 100%;
-    background: #F0F2F5;
+.layout1 {
+  .app-container {
     //background: blue;
     position: relative;
-    .app-aside{
+    width: 100%;
+    height: 100%;
+    background: #F0F2F5;
+    .app-aside {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 3;
       width: $sideBarWidth;
       height: 100%;
       //background: yellow;
       background: $themeColor;
-      box-shadow: 2px 0 6px rgba(0,21,41,.35);
-      transition: width .28s;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      z-index: 3;
+      box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+      transition: width 0.28s;
 
       // 侧边栏滚动条
-      .el-scrollbar{
+      .el-scrollbar {
         height: 100%;
       }
-      .el-scrollbar__bar{
+      .el-scrollbar__bar {
         z-index: 10;
       }
-      .el-scrollbar__bar.is-vertical{
+      .el-scrollbar__bar.is-vertical {
         right: 0;
       }
       .scrollbar-wrapper {
-        overflow-x: hidden!important;
+        overflow-x: hidden !important;
       }
-
     }
-    .app-main{
-      margin-left: $sideBarWidth;
-      transition: margin-left .28s;
-      height: 100%;
+    .app-main {
       position: relative;
+      height: 100%;
+      margin-left: $sideBarWidth;
       overflow-y: auto;
+      transition: margin-left 0.28s;
       //z-index: 2;
-      .app-header-in{
-        height: 60px;
+      .app-header-in {
         //background: green;
         position: absolute;
         top: 0;
-        left: 0;
         right: 0;
+        left: 0;
         z-index: 1;
+        height: 60px;
       }
-      .app-main-in{
-        margin-top: 60px;
-        height: calc(100% - 60px);
-        background: #F0F2F5;
+      .app-main-in {
         position: relative;
+        height: calc(100% - 60px);
+        margin-top: 60px;
+        background: #F0F2F5;
       }
     }
   }
 
-  .fixedHeader{
-    .app-main-in{
+  .fixedHeader {
+    .app-main-in {
       overflow-y: auto;
     }
   }
@@ -130,16 +130,16 @@
       margin-left: 54px !important;
     }
   }
-  .needTagsView{
-    .app-header-in{
-      height: 94px  !important;
-      .layout1-navbar{
+  .needTagsView {
+    .app-header-in {
+      height: 94px !important;
+      .layout1-navbar {
         height: 60px;
       }
     }
-    .app-main-in{
-      margin-top: 94px !important;
+    .app-main-in {
       height: calc(100% - 94px) !important;
+      margin-top: 94px !important;
     }
   }
   //.mobile {
@@ -165,7 +165,7 @@
   //    }
   //  }
   //}
-  .withoutAnimation{
+  .withoutAnimation {
     .app-main {
       transition: none !important;
     }
@@ -176,29 +176,31 @@
 }
 
 //layout1 菜单颜色样式
-.layout1 .el-menu{
+.layout1 .el-menu {
   background-color: $themeColor;
-  .el-menu-item,.el-submenu__title{
-    color: rgba(255,255,255,.7);
+  .el-menu-item,
+  .el-submenu__title {
+    color: rgba(255, 255, 255, 0.7);
     background-color: $themeColor;
-    .el-submenu__icon-arrow{
-      color: rgba(255,255,255,.5);
+    .el-submenu__icon-arrow {
+      color: rgba(255, 255, 255, 0.5);
     }
-    &:hover,&:focus{
-      background-color: rgba(0,0,0,.1);
+    &:hover,
+    &:focus {
       color: #fff;
-      .el-submenu__icon-arrow{
+      background-color: rgba(0, 0, 0, 0.1);
+      .el-submenu__icon-arrow {
         color: #fff;
       }
     }
-    &.is-active{
-      background-color: rgba(0,0,0,.2);
+    &.is-active {
       color: #fff;
+      background-color: rgba(0, 0, 0, 0.2);
     }
   }
-  .is-active .el-submenu__title{
+  .is-active .el-submenu__title {
     color: #fff;
-    .el-submenu__icon-arrow{
+    .el-submenu__icon-arrow {
       color: #fff;
     }
   }

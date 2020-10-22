@@ -13,9 +13,37 @@ import { asyncRoutes, constantRoutes } from '@/router'
  * @returns {*}
  */
 export function filterAsyncRoutes(asyncRoutes, roles) {
-  // 在这里处理权限路由相关逻辑
-
-  return asyncRoutes
+  const filterRoutes = []
+  asyncRoutes.forEach(route => {
+    let children = null
+    if (route.children) {
+      children = filterAsyncRoutes(route.children, roles)
+    }
+    // 保留menuCode在roles中存在的路由
+    if (route.meta && route.meta.menuCode) {
+      const menuRoles = roles.filter(item => item === route.meta.menuCode)
+      if (menuRoles.length > 0) {
+        if (children) {
+          filterRoutes.push({
+            ...route,
+            children
+          })
+        } else {
+          filterRoutes.push(route)
+        }
+      }
+    } else {
+      if (children) {
+        filterRoutes.push({
+          ...route,
+          children
+        })
+      } else {
+        filterRoutes.push(route)
+      }
+    }
+  })
+  return filterRoutes
 }
 
 /**
@@ -75,9 +103,35 @@ export function getMenusByRoutes(routes) {
   return menus
 }
 
+/**
+ * 改造路由
+ * 如果路由未配置component属性，且存在children属性，
+ * 则将children放到到父级
+ * 用于多级路由配置
+ * @param routes
+ */
+function remakeRoute(routes) {
+  const rtnRoutes = [...routes]
+  rtnRoutes.forEach((route, index) => {
+    if (route.children) {
+      rtnRoutes[index] = { ...route }
+      rtnRoutes[index].children = remakeRoute(rtnRoutes[index].children)
+    }
+    if (!route.component && route.children) {
+      rtnRoutes.splice(index + 1, 0, ...route.children.map(item => ({
+        ...item,
+        path: item.path.indexOf('/') !== 0 ? route.path + '/' + item.path : item.path
+      })))
+      rtnRoutes[index].children = null
+    }
+  })
+  return rtnRoutes
+}
+
 const state = {
   routes: [],
-  menus: []
+  menus: [],
+  roles: []
 }
 
 const mutations = {
@@ -86,6 +140,9 @@ const mutations = {
   },
   SET_MENUS: (state, menus) => {
     state.menus = menus
+  },
+  SET_ROLES: (state, roles) => {
+    state.roles = roles
   }
 }
 
@@ -94,15 +151,19 @@ const actions = {
     // const userInfo = rootGetters.userInfo
     // const res = await queryUserMenu({ userCode: userInfo.userCode })
     // const roles = res.data
-    const roles = []
-    const accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+    const roles = ['admin']
+    commit('SET_ROLES', roles)
+    let accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+    if (process.env.NODE_ENV === 'development') {
+      accessedRoutes = asyncRoutes
+    }
     if (accessedRoutes.length === 0) { // 没有任何菜单的权限
       return Promise.reject({ errCode: 403 })
     }
     const menus = getMenusByRoutes(constantRoutes.concat(accessedRoutes))
     const homeRoute = { path: '/', redirect: menus[0] ? menus[0].routePath : '/404' }
     accessedRoutes.unshift(homeRoute) // 添加首页
-    accessedRoutes.push({ path: '*', redirect: '/404' }) // 添加404页
+    accessedRoutes = remakeRoute(accessedRoutes)
     const routes = constantRoutes.concat(accessedRoutes)
     commit('SET_MENUS', menus)
     commit('SET_ROUTES', routes)
