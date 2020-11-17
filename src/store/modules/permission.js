@@ -10,40 +10,31 @@ import { asyncRoutes, constantRoutes } from '@/router'
  * 根据权限过滤路由
  * @param asyncRoutes
  * @param roles
- * @returns {*}
  */
 export function filterAsyncRoutes(asyncRoutes, roles) {
-  const filterRoutes = []
-  asyncRoutes.forEach(route => {
-    let children = null
-    if (route.children) {
-      children = filterAsyncRoutes(route.children, roles)
-    }
-    // 保留menuCode在roles中存在的路由
-    if (route.meta && route.meta.menuCode) {
-      const menuRoles = roles.filter(item => item === route.meta.menuCode)
-      if (menuRoles.length > 0) {
-        if (children) {
-          filterRoutes.push({
-            ...route,
-            children
-          })
+  const filterFn = (routes) => {
+    const filterRoutes = []
+    routes.forEach(route => {
+      let children = []
+      if (route.children) {
+        children = filterFn(route.children)
+      }
+      if (!route.meta || !route.meta.role || roles.includes(route.meta.role)) {
+        if (route.children) {
+          if (children.length > 0) {
+            filterRoutes.push({
+              ...route,
+              children
+            })
+          }
         } else {
           filterRoutes.push(route)
         }
       }
-    } else {
-      if (children) {
-        filterRoutes.push({
-          ...route,
-          children
-        })
-      } else {
-        filterRoutes.push(route)
-      }
-    }
-  })
-  return filterRoutes
+    })
+    return filterRoutes
+  }
+  return filterFn(asyncRoutes)
 }
 
 /**

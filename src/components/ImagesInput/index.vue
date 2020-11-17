@@ -47,6 +47,10 @@
       onlyOne: {
         type: Boolean,
         default: false
+      },
+      limit: {
+        type: Number,
+        default: 0
       }
     },
     computed: {
@@ -72,6 +76,9 @@
     },
     methods: {
       async importImage() {
+        if (!this.onlyOne && this.limit && this.images.length >= this.limit) {
+          this.$message.warning(`最多上传${this.limit}张图片`)
+        }
         const file = await importFile({ accept: 'image/*' })
         await this.upload(file)
       },
