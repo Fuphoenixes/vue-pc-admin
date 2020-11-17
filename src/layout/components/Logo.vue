@@ -4,7 +4,11 @@
       <!--      <img v-if="logo" :src="logo" class="sidebar-logo">-->
       <svg-icon icon-class="logo" class="sidebar-logo" />
       <transition name="sidebarLogoFade">
-        <h1 v-show="!collapse" class="sidebar-title">{{ settings.title }} </h1>
+        <h1
+          v-show="!collapse"
+          class="sidebar-title"
+          :style="{ fontSize: settings.layout === 'layout1' && settings.title.length >= 8 ? '14px' : '18px'}"
+        >{{ settings.title }} </h1>
       </transition>
     </router-link>
   </div>
