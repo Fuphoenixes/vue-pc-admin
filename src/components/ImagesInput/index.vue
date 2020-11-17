@@ -76,7 +76,7 @@
         await this.upload(file)
       },
       async upload(file) {
-        const url = await upload({ file, prefixKey: 'caesar_' })
+        const url = await upload({ file })
         if (this.onlyOne) {
           this.images = [url]
         } else {
