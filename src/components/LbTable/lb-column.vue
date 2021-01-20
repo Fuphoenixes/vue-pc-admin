@@ -1,12 +1,12 @@
 /*
- * FileName: lb-column.vue
- * Remark: element-column
- * Project: lb-element-table
- * Author: LiuBing
- * File Created: Tuesday, 19th March 2019 9:58:23 am
- * Last Modified: Tuesday, 19th March 2019 10:14:42 am
- * Modified By: LiuBing
- */
+* FileName: lb-column.vue
+* Remark: element-column
+* Project: lb-element-table
+* Author: LiuBing
+* File Created: Tuesday, 19th March 2019 9:58:23 am
+* Last Modified: Tuesday, 19th March 2019 10:14:42 am
+* Modified By: LiuBing
+*/
 
 <template>
   <el-table-column
@@ -103,14 +103,20 @@
           this.column.render = this.column.render || forced[this.column.type].renderCell
         }
         if (this.column.formatter) {
-          this.column.render = (h, scope) => {
+          // this.column.render = (h, scope) => {
+          //   return <span>{ scope.column.formatter(scope.row, scope.column, scope.row, scope.$index) }</span>
+          // }
+          this.$set(this.column, 'render', (h, scope) => {
             return <span>{ scope.column.formatter(scope.row, scope.column, scope.row, scope.$index) }</span>
-          }
+          })
         }
         if (!this.column.render) {
-          this.column.render = (h, scope) => {
+          // this.column.render = (h, scope) => {
+          //   return <span>{ scope.row[scope.column.property] }</span>
+          // }
+          this.$set(this.column, 'render', (h, scope) => {
             return <span>{ scope.row[scope.column.property] }</span>
-          }
+          })
         }
         // fix: 解决由于表格宽度过宽，列又固定在右边，导致显示出现断层的bug
         if (this.column.fixed) {
