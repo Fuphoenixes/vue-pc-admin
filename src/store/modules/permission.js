@@ -96,8 +96,8 @@ export function getMenusByRoutes(routes) {
 
 /**
  * 改造路由
- * 如果路由未配置component属性，且存在children属性，
- * 则将children放到到父级
+ * 如果当前路由未配置component属性，且存在children属性，
+ * 则将children放到到其父级
  * 用于多级路由配置
  * @param routes
  */

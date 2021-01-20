@@ -1,15 +1,12 @@
 const delay = require('webpack-api-mocker/utils/delay')
 const user = require('./user')
+const table = require('./table')
+const article = require('./article')
 
 const mocks = {
   ...user,
-  'GET /mock/upload/getToken': {
-    status: 200,
-    data: {
-      domain: 'http://xxx.com',
-      token: 'xxxxxxxxxxx'
-    }
-  },
+  ...table,
+  ...article
 }
 
 module.exports = delay(mocks, 1000)
