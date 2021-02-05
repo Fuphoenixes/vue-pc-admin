@@ -191,6 +191,14 @@
         ) {
           return;
         }
+
+        // TODO: 更下一级菜单显示问题暂时无法解决
+        const windowWidth = document.documentElement.clientWidth
+        const { width, right } = this.$el.getBoundingClientRect()
+        if (right + width + 40 > windowWidth) {
+          this.$refs.menu.style.transform = 'translateX(-410px)'
+        }
+
         this.dispatch('ElSubmenu', 'mouse-enter-child');
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
@@ -271,7 +279,6 @@
         $slots,
         isFirstLevel
       } = this;
-
       const popupMenu = (
         <transition name={menuTransitionName}>
           <div
