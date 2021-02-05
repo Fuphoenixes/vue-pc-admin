@@ -11,19 +11,19 @@
         <span>布局类型</span>
         <ul class="layout">
           <li @click="changeSetting({layout:'layout1'})">
-            <svg-icon icon-class="layout1" />
+            <img src="../../../assets/layout/layout1.svg" alt="layout1">
             <i v-show="settings.layout === 'layout1'" class="el-icon-check" />
           </li>
           <li @click="changeSetting({layout:'layout2'})">
-            <svg-icon icon-class="layout2" />
+            <img src="../../../assets/layout/layout2.svg" alt="layout2">
             <i v-show="settings.layout === 'layout2'" class="el-icon-check" />
           </li>
           <li @click="changeSetting({layout:'layout3'})">
-            <svg-icon icon-class="layout3" />
+            <img src="../../../assets/layout/layout3.svg" alt="layout3">
             <i v-show="settings.layout === 'layout3'" class="el-icon-check" />
           </li>
           <li @click="changeSetting({layout:'layout4'})">
-            <svg-icon icon-class="layout4" />
+            <img src="../../../assets/layout/layout4.svg" alt="layout4">
             <i v-show="settings.layout === 'layout4'" class="el-icon-check" />
           </li>
         </ul>
@@ -66,9 +66,9 @@
       <div class="drawer-item">
         <span>固定头部</span>
         <el-switch
-          :value="settings.layout !== 'layout2' ? true : settings.fixedHeader"
+          :value="settings.layout !== 'layout2' && settings.layout !== 'layout1' ? true : settings.fixedHeader"
           class="drawer-switch"
-          :disabled="settings.layout !== 'layout2'"
+          :disabled="settings.layout !== 'layout2' && settings.layout !== 'layout1' "
           @input="fixedHeader=>changeSetting({fixedHeader})"
         />
       </div>
@@ -145,7 +145,7 @@
           height: 45px;
           margin-right: 10px;
 
-          svg {
+          img {
             width: 100%;
             height: 100%;
           }
