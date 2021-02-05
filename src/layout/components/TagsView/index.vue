@@ -1,6 +1,6 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
-    <scroll-pane ref="scrollPane" class="tags-view-wrapper">
+    <scroll-pane ref="scrollPane" :watch-data="visitedTags" class="tags-view-wrapper">
       <router-link
         v-for="tag in visitedTags"
         ref="tag"
@@ -146,10 +146,9 @@
       },
       openMenu(tag, e) {
         const menuMinWidth = 105
-        const offsetLeft = this.$el.getBoundingClientRect().left // container margin left
-        const offsetWidth = this.$el.offsetWidth // container width
-        const maxLeft = offsetWidth - menuMinWidth // left boundary
-        const left = e.clientX - offsetLeft + 15 // 15: margin right
+        const windowWidth = document.documentElement.clientWidth
+        const maxLeft = windowWidth - menuMinWidth // left boundary
+        const left = e.clientX + 15 // 15: margin right
 
         if (left > maxLeft) {
           this.left = maxLeft
@@ -225,7 +224,7 @@
       }
     }
     .contextmenu {
-      position: absolute;
+      position: fixed;
       z-index: 3000;
       padding: 5px 0;
       margin: 0;

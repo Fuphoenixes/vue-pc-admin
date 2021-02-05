@@ -201,7 +201,7 @@
         this.$refs.elTable.clearFilter(columnKey)
       },
       doLayout() {
-        this.$refs.elTable.doLayout()
+        this.$refs.elTable && this.$refs.elTable.doLayout()
       },
       sort(prop, order) {
         this.$refs.elTable.sort(prop, order)

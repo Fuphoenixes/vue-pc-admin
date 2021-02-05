@@ -9,6 +9,9 @@
 
   export default {
     name: 'scroll-pane',
+    props: {
+      watchData: {}
+    },
     data() {
       return {
         left: 0
@@ -17,6 +20,17 @@
     computed: {
       scrollWrapper() {
         return this.$refs.scrollContainer.$refs.wrap
+      }
+    },
+    watch: {
+      watchData: {
+        handler() {
+          this.$nextTick(() => {
+            this.$refs.scrollContainer.update()
+          })
+        },
+        immediate: false,
+        deep: true
       }
     },
     methods: {

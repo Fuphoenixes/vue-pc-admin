@@ -88,11 +88,12 @@
         this.renderMenu = topMenu
       },
       getItemW(item) {
-        // 20 14 8
+        // 20 14 8 20
         let w = 0
-        if (item.icon) w += 22
-        w += item.title.length * 14
-        w += 40
+        if (item.icon) w += 22 // 图标长度
+        if (item.children) w += 20 // 右边下箭头
+        w += item.title.length * 14 // 文字长度
+        w += 40 // padding
         return w
       }
     }
